@@ -1,0 +1,9 @@
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.exe.config
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.pdb
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.csprojResolveAssemblyReference.cache
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Form1.resources
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Properties.Resources.resources
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.csproj.GenerateResource.Cache
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.pdb
