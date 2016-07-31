@@ -493,6 +493,7 @@ class NSTextBox : Control
         }
     }
 
+    [Localizable(false)]
     public override string Text
     {
         get { return base.Text; }
