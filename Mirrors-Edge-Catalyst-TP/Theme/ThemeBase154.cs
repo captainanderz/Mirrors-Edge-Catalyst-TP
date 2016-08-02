@@ -253,28 +253,31 @@ abstract class ThemeContainer154 : ContainerControl
     }
 
     private bool WM_LMBUTTONDOWN;
-    protected override void WndProc(ref Message m)
-    {
-        base.WndProc(ref m);
+    //protected override void WndProc(ref Message m)
+    //{
+    //    base.WndProc(ref m);
+    //    if (m.Msg == 0x0312) // if hotkey pressed
+    //    {
+    //        MessageBox.Show("");
+    //    }
+    //    if (WM_LMBUTTONDOWN && m.Msg == 513)
+    //    {
+    //        WM_LMBUTTONDOWN = false;
 
-        if (WM_LMBUTTONDOWN && m.Msg == 513)
-        {
-            WM_LMBUTTONDOWN = false;
+    //        SetState(MouseState.Over);
+    //        if (!_SmartBounds)
+    //            return;
 
-            SetState(MouseState.Over);
-            if (!_SmartBounds)
-                return;
-
-            if (IsParentMdi)
-            {
-                CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
-            }
-            else
-            {
-                CorrectBounds(Screen.FromControl(Parent).WorkingArea);
-            }
-        }
-    }
+    //        if (IsParentMdi)
+    //        {
+    //            CorrectBounds(new Rectangle(Point.Empty, Parent.Parent.Size));
+    //        }
+    //        else
+    //        {
+    //            CorrectBounds(Screen.FromControl(Parent).WorkingArea);
+    //        }
+    //    }
+    //}
 
     private Point GetIndexPoint;
     private bool B1;

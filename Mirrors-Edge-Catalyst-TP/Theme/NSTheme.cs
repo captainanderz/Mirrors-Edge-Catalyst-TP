@@ -7,21 +7,6 @@ using System.ComponentModel;
 using System.Text;
 using System.Collections.Generic;
 
-//IMPORTANT:
-//Please leave these comments in place as they help protect intellectual rights and allow
-//developers to determine the version of the theme they are using. The preffered method
-//of distributing this theme is through the Nimoru Software home page at nimoru.com.
-
-//Name: Net Seal Theme
-//Created: 6/21/2013
-//Version: 1.0.0.2 beta
-//Site: http://nimoru.com/
-
-//This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-//To view a copy of this license, please visit http://creativecommons.org/licenses/by/3.0/
-
-//Copyright © 2013 Nimoru Software
-
 static class ThemeModule
 {
 

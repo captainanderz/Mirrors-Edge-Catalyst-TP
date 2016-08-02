@@ -261,7 +261,7 @@ namespace Mirrors_Edge_Catalyst_TP.Helpers
         {
             public SerialCounter(int start)
             {
-                Current = start;
+                Current = 0;
             }
 
             public int Current { get; private set; }

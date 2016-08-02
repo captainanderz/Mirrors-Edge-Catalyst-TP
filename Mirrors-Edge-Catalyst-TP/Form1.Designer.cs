@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.CheckGameStatus = new System.Windows.Forms.Timer(this.components);
             this.Menu = new NSTheme();
             this.nsGroupBox1 = new NSGroupBox();
@@ -229,8 +230,10 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.nsGroupBox1.ResumeLayout(false);

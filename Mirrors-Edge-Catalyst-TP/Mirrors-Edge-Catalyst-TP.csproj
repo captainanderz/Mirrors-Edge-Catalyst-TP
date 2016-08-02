@@ -89,23 +89,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Enums and Strucks.cs" />
-    <Compile Include="Helpers\Event Args.cs" />
+    <Compile Include="Helpers\Enums and Strucks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Event Args.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\Event Handlers.cs" />
-    <Compile Include="Helpers\Exceptions.cs" />
-    <Compile Include="Helpers\Global Shortcut Manager.cs" />
-    <Compile Include="Helpers\Helpers.cs" />
-    <Compile Include="Helpers\HotKeys.cs" />
-    <Compile Include="Helpers\Win32.cs" />
+    <Compile Include="Helpers\Exceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Helpers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\HotKeys.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Win32.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MemoryManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBoxOverlay.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TextBoxOverlay.Designer.cs">
-      <DependentUpon>TextBoxOverlay.cs</DependentUpon>
-    </Compile>
     <Compile Include="Theme\NSTheme.cs">
       <SubType>Component</SubType>
     </Compile>
