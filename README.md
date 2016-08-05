@@ -3,8 +3,8 @@
 
 ![Menu](http://i.imgur.com/dbN68FX.png)
 
-# **[Download](https://drive.google.com/open?id=0B1XPCxvsEnGUUGRDcFlzUDlETm8)**
-via Google drive
+# **[Download](https://mega.nz/#!jl5H3BTD!s-RP0P13dcPSpG2xQcURvrd-Ulxv8BySPJuiMIraVzY)**
+via Mega
 
 [Virustotal](https://www.virustotal.com/da/file/d6522b430ed48c917aa6f5d28674fa7c05c2b06c0af6080841700bfe5fd79981/analysis/1470403642/)
 
