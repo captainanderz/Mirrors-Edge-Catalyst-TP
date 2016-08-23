@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Mirrors_Edge_Catalyst_SpeedOMeter;
+using Mirrors_Edge_Catalyst_TP.Helpers;
 
 namespace Mirrors_Edge_Catalyst_TP
 {
@@ -11,6 +12,28 @@ namespace Mirrors_Edge_Catalyst_TP
     {
         private readonly MemoryManager Mem;
         private bool GameProcessIsOpen;
+        private RegisterHotKeyIds HotkeyId;
+        private bool IsGameInFocusBool = false;
+        private int SHotkey;
+        private int SHotkeyMods;
+        private int THotkey;
+        private int THotkeyMods;
+
+        #region user32.dll's
+
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+        [DllImport("user32.dll")]
+        internal static extern int UnregisterHotKey(IntPtr hwnd, int id);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        private static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int GetWindowThreadProcessId(IntPtr handle, out int processId);
+
+        #endregion
 
         public Form1()
         {
@@ -67,12 +90,16 @@ namespace Mirrors_Edge_Catalyst_TP
             Application.Exit();
         }
 
+        #region Timers
+
         private void CheckGameStatus_Tick(object sender, EventArgs e)
         {
             if (Process.GetProcessesByName("MirrorsEdgeCatalyst").Length > 0)
             {
                 GameStatus.Text = "RUNNING";
                 GameStatus.ForeColor = Color.Green;
+
+                IsGameInFocus.Enabled = true; // Start In Focus Checker
 
                 if (!GameProcessIsOpen)
                 {
@@ -86,6 +113,49 @@ namespace Mirrors_Edge_Catalyst_TP
                 GameStatus.ForeColor = Color.Red;
             }
         }
+
+        private void IsGameInFocus_Tick(object sender, EventArgs e)
+        {
+            IsGameInFocusBool = ApplicationIsActivated();
+        //    var b = false;
+        //    if (!IsGameInFocusBool)
+        //    {
+        //        UnregisterHotKey(Handle, 1);
+        //        UnregisterHotKey(Handle, 2);
+        //        b = false;
+        //    }
+        //    else
+        //    {
+        //        if (SHotkey != 0 || THotkey != 0)
+        //        {
+        //            if (!b)
+        //            {
+        //                RegisterHotKey(Handle, (int)RegisterHotKeyIds.SavePositionId, SHotkeyMods, SHotkey);
+        //                RegisterHotKey(Handle, (int)RegisterHotKeyIds.SavePositionId, THotkeyMods, THotkey);
+        //                b = true;
+        //            }
+        //        }
+        //    }
+        }
+
+#endregion
+
+        public bool ApplicationIsActivated()
+        {
+            var activatedHandle = GetForegroundWindow();
+            if (activatedHandle == IntPtr.Zero)
+            {
+                return false;       // No window is currently activated
+            }
+
+            var procId = Process.GetCurrentProcess().Id;
+            int activeProcId;
+            GetWindowThreadProcessId(activatedHandle, out activeProcId);
+            
+
+            return activeProcId == 2836; //procId;
+        }
+
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -153,19 +223,11 @@ namespace Mirrors_Edge_Catalyst_TP
             UnregisterHotKey(Handle, 2);
         }
 
-        #region user32.dll's
-
-        [DllImport("user32.dll")]
-        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
-
-        [DllImport("user32.dll")]
-        internal static extern int UnregisterHotKey(IntPtr hwnd, int id);
-
-        #endregion
+        
 
         // HotKey setup
 
-        #region
+        #region Hotkey logic
 
         private void TelePosition_Enter(object sender, EventArgs e)
         {
@@ -234,15 +296,15 @@ namespace Mirrors_Edge_Catalyst_TP
                 if (!string.IsNullOrEmpty("SavePosition") && HotKeyShared.IsValidHotkeyName(SavePosition.Text))
                 {
                     // Add hotkey
-                    var sHotkey = (int)e.KeyCode;
-                    var sHotkeyMods = (int)e.Modifiers;
+                    SHotkey = (int)e.KeyCode;
+                    SHotkeyMods = (int)e.Modifiers;
 
                     var modString = (new KeysConverter()).ConvertToString(e.Modifiers);
                     SavePosition.Text = modString.Substring(0, modString.Length - 4) +
-                                        (new KeysConverter()).ConvertToString(sHotkey);
+                                        (new KeysConverter()).ConvertToString(SHotkey);
 
-                    UnregisterHotKey(Handle, 1);
-                    RegisterHotKey(Handle, 1, sHotkeyMods, sHotkey);
+                    UnregisterHotKey(Handle, (int)RegisterHotKeyIds.SavePositionId);
+                    RegisterHotKey(Handle, (int)RegisterHotKeyIds.SavePositionId, SHotkeyMods, SHotkey);
 
                     Cursor.Show();
                 }
@@ -320,15 +382,15 @@ namespace Mirrors_Edge_Catalyst_TP
                 if (!string.IsNullOrEmpty("SavePosition") && HotKeyShared.IsValidHotkeyName(TelePosition.Text))
                 {
                     // Add hotkey
-                    var sHotkey = (int) e.KeyCode;
-                    var sHotkeyMods = (int) e.Modifiers;
+                    THotkey = (int) e.KeyCode;
+                    THotkeyMods = (int) e.Modifiers;
 
                     var modString = (new KeysConverter()).ConvertToString(e.Modifiers);
                     TelePosition.Text = modString.Substring(0, modString.Length - 4) +
-                                        (new KeysConverter()).ConvertToString(sHotkey);
+                                        (new KeysConverter()).ConvertToString(THotkey);
 
-                    UnregisterHotKey(Handle, 2);
-                    RegisterHotKey(Handle, 2, sHotkeyMods, sHotkey);
+                    UnregisterHotKey(Handle, (int)RegisterHotKeyIds.TelePositionId);
+                    RegisterHotKey(Handle, (int)RegisterHotKeyIds.TelePositionId, THotkeyMods, THotkey);
 
                     Cursor.Show();
                 }
@@ -340,5 +402,18 @@ namespace Mirrors_Edge_Catalyst_TP
         }
 
         #endregion
+
+        private void HighTowerButton_Click(object sender, EventArgs e)
+        {
+            if (GameProcessIsOpen)
+            {
+                Mem.WriteFloat(SavePosAddressY, (float)206.101);
+                Mem.WriteFloat(SavePosAddressX, (float)599.36);
+                Mem.WriteFloat(SavePosAddressZ, (float)243.207);
+                Invalidate();
+            }
+        }
+
+        
     }
 }

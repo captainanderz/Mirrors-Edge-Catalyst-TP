@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.CheckGameStatus = new System.Windows.Forms.Timer(this.components);
             this.Menu = new NSTheme();
+            this.nsGroupBox2 = new NSGroupBox();
+            this.HighestTower = new NSButton();
             this.nsGroupBox1 = new NSGroupBox();
             this.nsLabel2 = new NSLabel();
             this.TelePosition = new NSTextBox();
@@ -43,7 +45,9 @@
             this.nsControlButton1 = new NSControlButton();
             this.GameStatus = new System.Windows.Forms.Label();
             this.GameName = new System.Windows.Forms.Label();
+            this.IsGameInFocus = new System.Windows.Forms.Timer(this.components);
             this.Menu.SuspendLayout();
+            this.nsGroupBox2.SuspendLayout();
             this.nsGroupBox1.SuspendLayout();
             this.GroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +64,7 @@
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.Menu.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Menu.Colors = new Bloom[0];
+            this.Menu.Controls.Add(this.nsGroupBox2);
             this.Menu.Controls.Add(this.nsGroupBox1);
             this.Menu.Controls.Add(this.GroupBox);
             this.Menu.Controls.Add(this.nsControlButton1);
@@ -74,13 +79,34 @@
             this.Menu.Name = "Menu";
             this.Menu.NoRounding = false;
             this.Menu.Sizable = true;
-            this.Menu.Size = new System.Drawing.Size(284, 261);
+            this.Menu.Size = new System.Drawing.Size(284, 355);
             this.Menu.SmartBounds = true;
             this.Menu.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
             this.Menu.TabIndex = 0;
             this.Menu.Text = "Teleporter - by CaptainAnderz";
             this.Menu.TransparencyKey = System.Drawing.Color.Empty;
             this.Menu.Transparent = false;
+            // 
+            // nsGroupBox2
+            // 
+            this.nsGroupBox2.Controls.Add(this.HighestTower);
+            this.nsGroupBox2.DrawSeperator = true;
+            this.nsGroupBox2.Location = new System.Drawing.Point(21, 198);
+            this.nsGroupBox2.Name = "nsGroupBox2";
+            this.nsGroupBox2.Size = new System.Drawing.Size(247, 145);
+            this.nsGroupBox2.SubTitle = "Points of interest";
+            this.nsGroupBox2.TabIndex = 5;
+            this.nsGroupBox2.Text = "nsGroupBox2";
+            this.nsGroupBox2.Title = "Quick Teleport";
+            // 
+            // HighestTower
+            // 
+            this.HighestTower.Location = new System.Drawing.Point(9, 46);
+            this.HighestTower.Name = "HighestTower";
+            this.HighestTower.Size = new System.Drawing.Size(110, 23);
+            this.HighestTower.TabIndex = 0;
+            this.HighestTower.Text = "Highest Tower V1";
+            this.HighestTower.Click += new System.EventHandler(this.HighTowerButton_Click);
             // 
             // nsGroupBox1
             // 
@@ -223,11 +249,16 @@
             this.GameName.TabIndex = 0;
             this.GameName.Text = "Mirror\'s Edge:";
             // 
+            // IsGameInFocus
+            // 
+            this.IsGameInFocus.Interval = 500;
+            this.IsGameInFocus.Tick += new System.EventHandler(this.IsGameInFocus_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 355);
             this.Controls.Add(this.Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -236,6 +267,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
+            this.nsGroupBox2.ResumeLayout(false);
             this.nsGroupBox1.ResumeLayout(false);
             this.GroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -257,6 +289,9 @@
         private NSTextBox TelePosition;
         private NSButton TeleportButton;
         private NSButton SaveButton;
+        private NSGroupBox nsGroupBox2;
+        private NSButton HighestTower;
+        private System.Windows.Forms.Timer IsGameInFocus;
 
     }
 }
