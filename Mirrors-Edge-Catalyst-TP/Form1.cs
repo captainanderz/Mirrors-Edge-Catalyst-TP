@@ -78,12 +78,22 @@ namespace Mirrors_Edge_Catalyst_TP
         }
 
         private bool KeyisSet { get; set; }
-        private long SavePosAddressY { get; set; }
-        private long SavePosAddressX { get; set; }
-        private long SavePosAddressZ { get; set; }
-        private float SavePosAddressYFloat { get; set; }
-        private float SavePosAddressXFloat { get; set; }
-        private float SavePosAddressZFloat { get; set; }
+
+        // 0x18
+        private long SavePosAddressY_18 { get; set; }
+        private long SavePosAddressX_18 { get; set; }
+        private long SavePosAddressZ_18 { get; set; }
+        private float SavePosAddressYFloat_18 { get; set; }
+        private float SavePosAddressXFloat_18 { get; set; }
+        private float SavePosAddressZFloat_18 { get; set; }
+        // 0x20
+        private long SavePosAddressY_20 { get; set; }
+        private long SavePosAddressX_20 { get; set; }
+        private long SavePosAddressZ_20 { get; set; }
+        private float SavePosAddressYFloat_20 { get; set; }
+        private float SavePosAddressXFloat_20 { get; set; }
+        private float SavePosAddressZFloat_20 { get; set; }
+        
 
         private void nsControlButton1_Click(object sender, EventArgs e)
         {
@@ -177,22 +187,35 @@ namespace Mirrors_Edge_Catalyst_TP
                 try
                 {
                     // 142578A68, 70, 98, 238, 18, 22d4 Y
-                    SavePosAddressY = Mem.ReadInt(Mem.GetModuleAddress("MirrorsEdgeCatalyst.exe") + 0x02578A68);
-                    SavePosAddressY = Mem.ReadInt(SavePosAddressY + 0x70);
-                    SavePosAddressY = Mem.ReadInt(SavePosAddressY + 0x98);
-                    SavePosAddressY = Mem.ReadInt(SavePosAddressY + 0x238);
-                    SavePosAddressY = Mem.ReadInt(SavePosAddressY + 0x18);
+                    SavePosAddressY_18 = Mem.ReadInt(Mem.GetModuleAddress("MirrorsEdgeCatalyst.exe") + 0x02578A68);
+                    SavePosAddressY_18 = Mem.ReadInt(SavePosAddressY_18 + 0x70);
+                    SavePosAddressY_18 = Mem.ReadInt(SavePosAddressY_18 + 0x98);
+                    SavePosAddressY_18 = Mem.ReadInt(SavePosAddressY_18 + 0x238);
+                    SavePosAddressY_18 = Mem.ReadInt(SavePosAddressY_18 + 0x18);
+                    SavePosAddressY_20 = Mem.ReadInt(SavePosAddressY_18 + 0x20);
 
-                    var quickReadAddress = SavePosAddressY;
+                    var quickReadAddress_20 = SavePosAddressY_20;
+                    var quickReadAddress = SavePosAddressY_18;
 
-                    SavePosAddressY += 0x22d4;
-                    SavePosAddressX = (quickReadAddress + 0x22d0);
-                    SavePosAddressZ = (quickReadAddress + 0x22d8);
+                    // For 0x18
+                    SavePosAddressY_18 += 0x22d4;
+                    SavePosAddressX_18 = (quickReadAddress + 0x22d0);
+                    SavePosAddressZ_18 = (quickReadAddress + 0x22d8);
 
-                    // Read Float values
-                    SavePosAddressYFloat = Mem.ReadFloat(SavePosAddressY);
-                    SavePosAddressXFloat = Mem.ReadFloat(SavePosAddressX);
-                    SavePosAddressZFloat = Mem.ReadFloat(SavePosAddressZ);
+                    // For 0x20
+                    SavePosAddressY_20 += 0x22d4;
+                    SavePosAddressX_20 = (quickReadAddress_20 + 0x22d0);
+                    SavePosAddressZ_20 = (quickReadAddress_20 + 0x22d8);
+
+                    // Read Float values for 0x18
+                    SavePosAddressYFloat_18 = Mem.ReadFloat(SavePosAddressY_18);
+                    SavePosAddressXFloat_18 = Mem.ReadFloat(SavePosAddressX_18);
+                    SavePosAddressZFloat_18 = Mem.ReadFloat(SavePosAddressZ_18);
+
+                    // Read Float values for 0x20
+                    SavePosAddressYFloat_20 = Mem.ReadFloat(SavePosAddressY_20);
+                    SavePosAddressXFloat_20 = Mem.ReadFloat(SavePosAddressX_20);
+                    SavePosAddressZFloat_20 = Mem.ReadFloat(SavePosAddressZ_20);
 
                     Invalidate();
                 }
@@ -205,15 +228,20 @@ namespace Mirrors_Edge_Catalyst_TP
 
         private void TeleMethod()
         {
-            if (GameProcessIsOpen)
+            if (!GameProcessIsOpen) return;
+            if (GameProcessIsOpen && SavePosAddressY_18 != 0 && SavePosAddressX_18 != 0 && SavePosAddressZ_18 != 0 && SavePosAddressY_20 != 0 && SavePosAddressX_20 != 0 && SavePosAddressZ_20 != 0)
             {
-                if (GameProcessIsOpen && SavePosAddressY != 0 && SavePosAddressX != 0 && SavePosAddressZ != 0)
-                {
-                    Mem.WriteFloat(SavePosAddressY, SavePosAddressYFloat);
-                    Mem.WriteFloat(SavePosAddressX, SavePosAddressXFloat);
-                    Mem.WriteFloat(SavePosAddressZ, SavePosAddressZFloat);
-                    Invalidate();
-                }
+                // For 0x18
+                Mem.WriteFloat(SavePosAddressY_18, SavePosAddressYFloat_18);
+                Mem.WriteFloat(SavePosAddressX_18, SavePosAddressXFloat_18);
+                Mem.WriteFloat(SavePosAddressZ_18, SavePosAddressZFloat_18);
+
+                // For 0x20
+                Mem.WriteFloat(SavePosAddressY_20, SavePosAddressYFloat_20);
+                Mem.WriteFloat(SavePosAddressX_20, SavePosAddressXFloat_20);
+                Mem.WriteFloat(SavePosAddressZ_20, SavePosAddressZFloat_20);
+
+                Invalidate();
             }
         }
 
@@ -407,9 +435,9 @@ namespace Mirrors_Edge_Catalyst_TP
         {
             if (GameProcessIsOpen)
             {
-                Mem.WriteFloat(SavePosAddressY, (float)206.101);
-                Mem.WriteFloat(SavePosAddressX, (float)599.36);
-                Mem.WriteFloat(SavePosAddressZ, (float)243.207);
+                Mem.WriteFloat(SavePosAddressY_18, (float)206.101);
+                Mem.WriteFloat(SavePosAddressX_18, (float)599.36);
+                Mem.WriteFloat(SavePosAddressZ_18, (float)243.207);
                 Invalidate();
             }
         }
