@@ -94,5 +94,11 @@ namespace Mirrors_Edge_Catalyst_TP.Helpers
         KeyDown,
         KeyUp
     }
+
+    public enum RegisterHotKeyIds
+    {
+        SavePositionId = 1,
+        TelePositionId = 2
+    }
     #endregion
 }
