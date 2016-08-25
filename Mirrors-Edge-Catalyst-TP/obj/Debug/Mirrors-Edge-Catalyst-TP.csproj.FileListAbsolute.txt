@@ -16,3 +16,12 @@ C:\TFS\GitHub\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirror
 C:\TFS\GitHub\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Form1.resources
 C:\TFS\GitHub\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Properties.Resources.resources
 C:\TFS\GitHub\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.csproj.GenerateResource.Cache
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.exe.config
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.pdb
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\Debug\Mirrors-Edge-Catalyst-TP.pdb
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.csprojResolveAssemblyReference.cache
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Form1.resources
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors_Edge_Catalyst_TP.Properties.Resources.resources
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\Debug\Mirrors-Edge-Catalyst-TP.csproj.GenerateResource.Cache

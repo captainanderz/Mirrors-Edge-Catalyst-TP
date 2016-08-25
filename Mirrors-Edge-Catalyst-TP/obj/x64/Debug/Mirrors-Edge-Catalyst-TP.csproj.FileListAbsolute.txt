@@ -1,0 +1,8 @@
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\x64\Debug\Mirrors-Edge-Catalyst-TP.exe.config
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\x64\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\x64\Debug\Mirrors-Edge-Catalyst-TP.exe
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\bin\x64\Debug\Mirrors-Edge-Catalyst-TP.pdb
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\x64\Debug\Mirrors_Edge_Catalyst_TP.Form1.resources
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\x64\Debug\Mirrors_Edge_Catalyst_TP.Properties.Resources.resources
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\x64\Debug\Mirrors-Edge-Catalyst-TP.csproj.GenerateResource.Cache
+C:\TFS projects\Github\Mirrors-Edge-Catalyst-TP\Mirrors-Edge-Catalyst-TP\obj\x64\Debug\Mirrors-Edge-Catalyst-TP.pdb

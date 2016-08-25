@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.CheckGameStatus = new System.Windows.Forms.Timer(this.components);
+            this.IsGameInFocus = new System.Windows.Forms.Timer(this.components);
             this.Menu = new NSTheme();
             this.nsGroupBox2 = new NSGroupBox();
             this.HighestTower = new NSButton();
@@ -45,7 +46,6 @@
             this.nsControlButton1 = new NSControlButton();
             this.GameStatus = new System.Windows.Forms.Label();
             this.GameName = new System.Windows.Forms.Label();
-            this.IsGameInFocus = new System.Windows.Forms.Timer(this.components);
             this.Menu.SuspendLayout();
             this.nsGroupBox2.SuspendLayout();
             this.nsGroupBox1.SuspendLayout();
@@ -57,6 +57,11 @@
             this.CheckGameStatus.Enabled = true;
             this.CheckGameStatus.Interval = 1000;
             this.CheckGameStatus.Tick += new System.EventHandler(this.CheckGameStatus_Tick);
+            // 
+            // IsGameInFocus
+            // 
+            this.IsGameInFocus.Interval = 500;
+            this.IsGameInFocus.Tick += new System.EventHandler(this.IsGameInFocus_Tick);
             // 
             // Menu
             // 
@@ -78,7 +83,7 @@
             this.Menu.Movable = true;
             this.Menu.Name = "Menu";
             this.Menu.NoRounding = false;
-            this.Menu.Sizable = true;
+            this.Menu.Sizable = false;
             this.Menu.Size = new System.Drawing.Size(284, 355);
             this.Menu.SmartBounds = true;
             this.Menu.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
@@ -245,14 +250,9 @@
             this.GameName.Location = new System.Drawing.Point(13, 39);
             this.GameName.Margin = new System.Windows.Forms.Padding(3);
             this.GameName.Name = "GameName";
-            this.GameName.Size = new System.Drawing.Size(79, 13);
+            this.GameName.Size = new System.Drawing.Size(80, 13);
             this.GameName.TabIndex = 0;
             this.GameName.Text = "Mirror\'s Edge:";
-            // 
-            // IsGameInFocus
-            // 
-            this.IsGameInFocus.Interval = 500;
-            this.IsGameInFocus.Tick += new System.EventHandler(this.IsGameInFocus_Tick);
             // 
             // Form1
             // 
