@@ -10,14 +10,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
 
-//------------------
-//Creator: aeonhack
-//Site: elitevs.net
-//Created: 08/02/2011
-//Changed: 12/06/2011
-//Version: 1.5.4
-//------------------
-
 abstract class ThemeContainer154 : ContainerControl
 {
 
